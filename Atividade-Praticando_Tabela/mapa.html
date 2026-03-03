@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Treinando Tabela com Imagem</title>
+  <style>
+    table {
+      border-width: 2px;
+      border-style: double;
+      background-color: chartreuse;
+    }
+
+    td {
+      border-width: 2px;
+      border-style: solid;
+      background-color: white;
+
+    }
+
+    .coluna1 {
+      border-width: 1px;
+      border-style: solid;
+      background-color: white;
+    }
+
+    .l {
+      border-width: 2px;
+      border-style: solid;
+      background-color: white;
+    }
+
+    .l1 {
+      border-width: 2px;
+      border-style: solid;
+      background-color: gray;
+    }
+
+    .title {
+      text-align: center;
+      background-color: blue;
+      color: white;
+      font-weight: bold;
+    }
+
+    .l {
+      border-width: 2px;
+      border-style: solid;
+      background-color: gray;
+    }
+
+
+    .l2 {
+      background-color: rgb(199, 148, 247);
+    }
+
+    .l3 {
+      background-color: orange;
+    }
+
+    .l4 {
+      background-color: rgb(148, 241, 148);
+    }
+
+    .l5 {
+      background-color: rgb(78, 78, 255);
+
+    }
+
+    .l6 {
+      background-color: rgb(248, 82, 110);
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <thead></thead>
+    <tbody></tbody>
+    <tr>
+      <td colspan=6 class="title">Regiões do Brasil</td>
+    </tr>
+    <tr>
+      <th class="l1">Mapa</th>
+      <th class="l">Estado</th>
+      <th class="l">Capital</th>
+      <th class="l">População</th>
+    </tr>
+    <tr>
+      <td rowspan=8 class="l1">
+        <img src="/mapa.webp" alt="Mapa do Brasil" width="720" height="500">
+        Mapa
+      </td>
+    </tr>
+    <tr>
+      <td class="l2">Amazonas</td>
+      <td class="l2">Manaus</td>
+      <td class="l2">2.063.689</td>
+    </tr>
+    <tr>
+      <td class="l3">Pernambuco</td>
+      <td class="l3">Recife</td>
+      <td class="l3">1.488.920</td>
+    </tr>
+    <tr>
+      <td class="l4">Centro-Oeste</td>
+      <td class="l4">Tocantins</td>
+      <td class="l4">302.692</td>
+    </tr>
+    <tr>
+      <td class="l5">São Paulo</td>
+      <td class="l5">São Paulo</td>
+      <td class="l5">11.451.999</td>
+    </tr>
+    <tr>
+      <td class="l6">Rio Grande do Sul</td>
+      <td class="l6">Porto Alegre</td>
+      <td class="l6">1.332.845</td>
+    </tr>
+  </table>
+
+</body>
+
+</html>
