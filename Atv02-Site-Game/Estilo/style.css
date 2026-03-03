@@ -72,3 +72,37 @@ td {
 a {
     text-decoration: none;
 }
+/* Estilo do Rodapé */
+.footer-desenvolvedor {
+    background-color: #1a1a1a; /* Cinza bem escuro quase preto */
+    color: #888;              /* Texto cinza discreto */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    border-top: 2px solid #333; /* Linha sutil separando da tabela */
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    letter-spacing: 1px;
+}
+
+/* Opcional: destaque no seu nome */
+.footer-desenvolvedor::selection {
+    background: #d3190d;
+    color: white;
+}
+.audio-Theme {
+    position: fixed;   /* Faz o player ficar "preso" na tela, mesmo ao rolar */
+    top: 20px;         /* Distância do topo */
+    right: 20px;       /* Distância da direita */
+    z-index: 999;      /* Garante que ele fique na frente de tudo */
+    background: rgba(0, 0, 0, 0.5); /* Fundo sutil para o player aparecer bem */
+    padding: 5px;
+    border-radius: 30px;
+    border: 1px solid #d3190d; /* Borda vermelha Gears */
+}
+
+/* Deixa o player mais discreto */
+.audio-Theme audio {
+    height: 35px;
+    width: 220px; /* Largura menor para não ocupar muito espaço */
+}
