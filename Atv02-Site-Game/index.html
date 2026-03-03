@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeria de Jogos Antigos</title>
+    <style>
+      /* Estilo Geral - Simulando a moldura cinza da imagem */
+      body {
+        /* Substitua 'fundo-externo.jpg' pelo nome do arquivo que está na sua pasta imagens */
+        background-image: url("imagens/back-gears.jpg");
+        background-size: cover; /* Garante que a imagem cubra toda a tela */
+        background-position: center; /* Mantém a imagem centralizada */
+        background-attachment: fixed; /* Opcional: faz o fundo ficar parado enquanto você rola a página */
+
+        margin: 0;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      /* Container Principal (A parte preta interna) */
+      .main-container {
+        background-color: #000000;
+        width: 100%;
+        max-width: 900px;
+        border: 3px inset #eeeeee; /* Efeito de borda 3D antiga */
+        padding: 0;
+      }
+
+      /* Título Azul Superior (Exatamente como na imagem) */
+      .header-title {
+        background-color: #fbfbfb; /* Azul puro */
+        color: #d3190d; /* Texto amarelo/dourado */
+        text-align: center;
+        padding: 15px 0;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 28px;
+        border-bottom: 2px solid #555;
+        margin: 0;
+      }
+
+      /* Estilização da Tabela de Jogos */
+      table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 30px; /* Espaçamento entre as fotos */
+        /* Se quiser trocar o fundo preto da tabela por uma imagem, mude aqui: */
+        /* background-image: url('seu-fundo.jpg'); */
+      }
+
+      td {
+        width: 50%;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      /* Moldura das Imagens */
+      .game-link img {
+        width: 100%;
+        max-width: 400px;
+        display: block;
+        border: 1px solid #444; /* Borda fina ao redor da imagem */
+        transition: transform 0.2s;
+      }
+
+      .game-link:hover img {
+        transform: scale(1.02);
+        filter: brightness(1.2);
+      }
+
+      /* Remover sublinhado dos links */
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <h1 class="header-title">Saga Gears Of War</h1>
+
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+        <tr>
+          <td>
+            <a
+              href="https://archive.org/details/msdos_Grand_Prix_Circuit_1988"
+              target="_blank"
+              class="game-link"
+            >
+              <img src="imagens/Gears_of_War.png" alt="Gears of War" />
+            </a>
+          </td>
+          <td>
+            <a href="https://princejs.com/" target="_blank" class="game-link">
+              <img src="imagens/Gears_of_War_2.jpg" alt="Gears of War 2" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="https://javatari.org/?ROM=https://vgmuseum.com/roms/atari2600/Superman.zip"
+              target="_blank"
+              class="game-link"
+            >
+              <img src="imagens/Gears_of_War_3.webp" alt="Gears of War 3" />
+            </a>
+          </td>
+          <td>
+            <a
+              href="https://archive.org/details/msdos_Stunts_1990"
+              target="_blank"
+              class="game-link"
+            >
+              <img
+                src="imagens/Gears_of_War-_Judgment.jpg"
+                alt="Gears of War Judgment"
+              />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="https://javatari.org/?ROM=https://vgmuseum.com/roms/atari2600/Superman.zip"
+              target="_blank"
+              class="game-link"
+            >
+              <img
+                src="imagens/Gears_Ultimate_Edition.jpg"
+                alt="Gears of War Ultimate Edition"
+              />
+            </a>
+          </td>
+          <td>
+            <a
+              href="https://archive.org/details/msdos_Stunts_1990"
+              target="_blank"
+              class="game-link"
+            >
+              <img src="imagens/Gears_of_war_4.jpg" alt="Gears_of_war_4" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="https://javatari.org/?ROM=https://vgmuseum.com/roms/atari2600/Superman.zip"
+              target="_blank"
+              class="game-link"
+            >
+              <img src="imagens/Gears_5.jpeg" alt="Gears 5" />
+            </a>
+          </td>
+          <td>
+            <a
+              href="https://archive.org/details/msdos_Stunts_1990"
+              target="_blank"
+              class="game-link"
+            >
+              <img src="imagens/Gears_Tactics.jpg" alt="Gears Tactics" />
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a
+              href="https://javatari.org/?ROM=https://vgmuseum.com/roms/atari2600/Superman.zip"
+              target="_blank"
+              class="game-link"
+            >
+              <img
+                src="imagens/gears_reloaded.avif"
+                alt="Gears of War Reloaded"
+              />
+            </a>
+          </td>
+          <td>
+            <a
+              href="https://archive.org/details/msdos_Stunts_1990"
+              target="_blank"
+              class="game-link"
+            >
+              <img
+                src="imagens/gears-of-war-e-day.jpg"
+                alt="Gears of War E-Day"
+              />
+            </a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
