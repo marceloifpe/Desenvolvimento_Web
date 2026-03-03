@@ -121,11 +121,42 @@ td {
 }
 
 .back-button {
+    display: inline-block;
     align-self: flex-start;
-    margin-bottom: 20px;
-    color: #ffff00;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+
+    /* Cores e Fundo Estilo Gears */
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+    color: #eeeeee;
     text-decoration: none;
     font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    /* Bordas e Efeito 3D */
+    border: 2px solid #555;
+    border-left: 5px solid #d3190d; /* Detalhe em vermelho na lateral */
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background: #d3190d; /* Fica vermelho Gears no hover */
+    color: #fff;
+    border-color: #ff4d4d;
+    transform: translateX(5px); /* Move levemente para a direita */
+    box-shadow: 0px 0px 15px rgba(211, 25, 13, 0.6);
+}
+
+/* Adicionando o símbolo "«" com estilo */
+.back-button::before {
+    content: "« ";
+    font-size: 16px;
 }
 
 /* ==========================================
