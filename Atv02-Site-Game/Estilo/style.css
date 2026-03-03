@@ -1,189 +1,176 @@
-/* ==========================================
-   ESTILO GERAL
-   ========================================== */
 body {
-    background-image: url("../imagens/back-gears.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 15px;
-    display: flex;
-    /* O padrão é à esquerda para a Home */
-    justify-content: flex-start;
-    font-family: "Times New Roman", Times, serif;
+  background-image: url("../imagens/back-gears.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  font-family: "Times New Roman", Times, serif;
 }
 
-/* AJUSTE PARA CENTRALIZAR APENAS NOS DETALHES */
-/* Se o body contiver a classe de detalhes, ele centraliza tudo */
 body:has(.game-info-container) {
-    justify-content: center;
+  justify-content: center;
 }
 
 .main-container {
-    background-color: rgba(0, 0, 0, 0.85);
-    width: 100%;
-    max-width: 900px; /* Tamanho da Home */
-    border: 3px inset #eeeeee;
-    padding: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  max-width: 900px; /* Tamanho da Home */
+  border: 3px inset #eeeeee;
+  padding: 0;
 }
 
-/* Se for página de detalhes, o container aumenta */
 .main-container:has(.game-info-container) {
-    max-width: 1100px !important;
+  max-width: 1100px !important;
 }
 
 .header-title {
-    background-color: #fbfbfb;
-    color: #d3190d;
-    text-align: center;
-    padding: 15px 0;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 28px;
-    border-bottom: 2px solid #555;
-    margin: 0;
+  background-color: #fbfbfb;
+  color: #d3190d;
+  text-align: center;
+  padding: 15px 0;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 28px;
+  border-bottom: 2px solid #555;
+  margin: 0;
 }
 
-/* ==========================================
-   ESTILO DA HOME (Alinhada à Esquerda)
-   ========================================== */
 table {
-    width: auto;
-    border-collapse: separate;
-    border-spacing: 30px;
-    margin-left: 0; /* Garante que na Home fique à esquerda */
+  width: auto;
+  border-collapse: separate;
+  border-spacing: 30px;
+  margin-left: 0;
 }
 
 td {
-    text-align: left;
-    vertical-align: middle;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .game-link img {
-    width: 270px;
-    height: 370px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    margin: 0;
-    border: 2px solid #444;
-    transition: all 0.3s ease;
-    box-shadow: 0px 10px 20px rgba(0,0,0,0.7);
+  width: 270px;
+  height: 370px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  margin: 0;
+  border: 2px solid #444;
+  transition: all 0.3s ease;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
 }
 
 .game-link:hover img {
-    transform: scale(1.05);
-    border-color: #d3190d;
-    box-shadow: 0px 0px 20px rgba(211, 25, 13, 0.5);
+  transform: scale(1.05);
+  border-color: #d3190d;
+  box-shadow: 0px 0px 20px rgba(211, 25, 13, 0.5);
 }
 
-/* ==========================================
-   ESTILO DE DETALHES (Centralizado)
-   ========================================== */
 .game-info-container {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo dentro dos detalhes */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .screenshot-table {
-    background-color: #000;
-    border-collapse: separate;
-    border-spacing: 20px;
-    padding: 10px;
-    border: 2px solid #333;
-    width: auto;
-    max-width: 100%;
-    margin: 0 auto; /* Centraliza a tabela de fotos nos detalhes */
+  background-color: #000;
+  border-collapse: separate;
+  border-spacing: 20px;
+  padding: 10px;
+  border: 2px solid #333;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .screenshot-table img {
-    width: 420px;
-    height: 280px;
-    object-fit: cover;
-    display: block;
-    border: 2px solid #555;
-    transition: transform 0.3s;
+  width: 420px;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  border: 2px solid #555;
+  transition: all 0.3s ease-in-out;
+}
+
+.screenshot-table img:hover {
+  transform: scale(1.05);
+  border-color: #d3190d;
+  box-shadow: 0px 0px 20px rgba(211, 25, 13, 0.6);
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
 }
 
 .description-box {
-    background-color: #d1d1d1;
-    color: #1a1a1a;
-    padding: 25px;
-    margin: 30px auto 0 auto; /* Centraliza a caixa de texto */
-    width: 100%;
-    max-width: 860px;
-    border: 4px inset #ffffff;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  background-color: #d1d1d1;
+  color: #1a1a1a;
+  padding: 25px;
+  margin: 30px auto 0 auto;
+  width: 100%;
+  max-width: 860px;
+  border: 4px inset #ffffff;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
 
 .back-button {
-    display: inline-block;
-    align-self: flex-start;
-    margin-bottom: 25px;
-    padding: 10px 20px;
-
-    /* Cores e Fundo Estilo Gears */
-    background: linear-gradient(135deg, #333 0%, #111 100%);
-    color: #eeeeee;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 14px;
-    letter-spacing: 1px;
-
-    /* Bordas e Efeito 3D */
-    border: 2px solid #555;
-    border-left: 5px solid #d3190d; /* Detalhe em vermelho na lateral */
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-
-    transition: all 0.3s ease;
-    cursor: pointer;
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #333 0%, #111 100%);
+  color: #eeeeee;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+  border: 2px solid #555;
+  border-left: 5px solid #d3190d;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .back-button:hover {
-    background: #d3190d; /* Fica vermelho Gears no hover */
-    color: #fff;
-    border-color: #ff4d4d;
-    transform: translateX(5px); /* Move levemente para a direita */
-    box-shadow: 0px 0px 15px rgba(211, 25, 13, 0.6);
+  background: #d3190d;
+  color: #fff;
+  border-color: #ff4d4d;
+  transform: translateX(5px);
+  box-shadow: 0px 0px 15px rgba(211, 25, 13, 0.6);
 }
 
-/* Adicionando o símbolo "«" com estilo */
 .back-button::before {
-    content: "« ";
-    font-size: 16px;
+  content: "« ";
+  font-size: 16px;
 }
 
-/* ==========================================
-   RODAPÉ E ÁUDIO
-   ========================================== */
 .footer-desenvolvedor {
-    background-color: #1a1a1a;
-    color: #888;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 14px;
-    border-top: 2px solid #333;
-    margin-top: 20px;
+  background-color: #1a1a1a;
+  color: #888;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+  border-top: 2px solid #333;
+  margin-top: 20px;
 }
 
 .audio-Theme {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 999;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 5px;
-    border-radius: 30px;
-    border: 1px solid #d3190d;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 30px;
+  border: 1px solid #d3190d;
 }
 
 .audio-Theme audio {
-    height: 35px;
-    width: 220px;
+  height: 35px;
+  width: 220px;
 }
