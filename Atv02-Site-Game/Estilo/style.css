@@ -1,4 +1,6 @@
-/* Estilo Geral */
+/* ==========================================
+   ESTILO GERAL
+   ========================================== */
 body {
     background-image: url("../imagens/back-gears.jpg");
     background-size: cover;
@@ -7,20 +9,30 @@ body {
     margin: 0;
     padding: 15px;
     display: flex;
+    /* O padrão é à esquerda para a Home */
     justify-content: flex-start;
     font-family: "Times New Roman", Times, serif;
 }
 
-/* Container Principal */
+/* AJUSTE PARA CENTRALIZAR APENAS NOS DETALHES */
+/* Se o body contiver a classe de detalhes, ele centraliza tudo */
+body:has(.game-info-container) {
+    justify-content: center;
+}
+
 .main-container {
-    background-color: rgba(0, 0, 0, 0.85); /* Preto levemente transparente para ver o fundo */
+    background-color: rgba(0, 0, 0, 0.85);
     width: 100%;
-    max-width: 900px;
+    max-width: 900px; /* Tamanho da Home */
     border: 3px inset #eeeeee;
     padding: 0;
 }
 
-/* Título */
+/* Se for página de detalhes, o container aumenta */
+.main-container:has(.game-info-container) {
+    max-width: 1100px !important;
+}
+
 .header-title {
     background-color: #fbfbfb;
     color: #d3190d;
@@ -33,31 +45,28 @@ body {
     margin: 0;
 }
 
-/* Tabela */
+/* ==========================================
+   ESTILO DA HOME (Alinhada à Esquerda)
+   ========================================== */
 table {
     width: auto;
     border-collapse: separate;
     border-spacing: 30px;
-    margin-left: 0; /* Garante que a margem esquerda seja zero */
+    margin-left: 0; /* Garante que na Home fique à esquerda */
 }
 
 td {
-    /* Remova o width: 50% se quiser que as colunas fiquem juntas à esquerda */
-    text-align: left; /* Alinha o conteúdo da célula à esquerda */
+    text-align: left;
     vertical-align: middle;
 }
 
-/* PADRONIZAÇÃO DAS IMAGENS */
 .game-link img {
-    /* Definimos as medidas exatas que você escolheu */
     width: 270px;
     height: 370px;
-
-    object-fit: cover; /* Mantém a imagem sem distorções dentro da medida */
-    object-position: center; /* Centraliza a arte da capa */
+    object-fit: cover;
+    object-position: center;
     display: block;
-    margin: 0; /* Garante que a imagem fique centralizada dentro da célula da tabela */
-
+    margin: 0;
     border: 2px solid #444;
     transition: all 0.3s ease;
     box-shadow: 0px 10px 20px rgba(0,0,0,0.7);
@@ -65,44 +74,85 @@ td {
 
 .game-link:hover img {
     transform: scale(1.05);
-    border-color: #d3190d; /* Destaque em vermelho Gears */
-    box-shadow: 0px 0px 20px rgba(211, 25, 13, 0.5); /* Brilho vermelho no hover */
+    border-color: #d3190d;
+    box-shadow: 0px 0px 20px rgba(211, 25, 13, 0.5);
 }
 
-a {
-    text-decoration: none;
+/* ==========================================
+   ESTILO DE DETALHES (Centralizado)
+   ========================================== */
+.game-info-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo dentro dos detalhes */
 }
-/* Estilo do Rodapé */
+
+.screenshot-table {
+    background-color: #000;
+    border-collapse: separate;
+    border-spacing: 20px;
+    padding: 10px;
+    border: 2px solid #333;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto; /* Centraliza a tabela de fotos nos detalhes */
+}
+
+.screenshot-table img {
+    width: 420px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    border: 2px solid #555;
+    transition: transform 0.3s;
+}
+
+.description-box {
+    background-color: #d1d1d1;
+    color: #1a1a1a;
+    padding: 25px;
+    margin: 30px auto 0 auto; /* Centraliza a caixa de texto */
+    width: 100%;
+    max-width: 860px;
+    border: 4px inset #ffffff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.back-button {
+    align-self: flex-start;
+    margin-bottom: 20px;
+    color: #ffff00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ==========================================
+   RODAPÉ E ÁUDIO
+   ========================================== */
 .footer-desenvolvedor {
-    background-color: #1a1a1a; /* Cinza bem escuro quase preto */
-    color: #888;              /* Texto cinza discreto */
+    background-color: #1a1a1a;
+    color: #888;
     text-align: center;
     padding: 20px 0;
     font-size: 14px;
-    border-top: 2px solid #333; /* Linha sutil separando da tabela */
+    border-top: 2px solid #333;
     margin-top: 20px;
-    font-family: Arial, sans-serif;
-    letter-spacing: 1px;
 }
 
-/* Opcional: destaque no seu nome */
-.footer-desenvolvedor::selection {
-    background: #d3190d;
-    color: white;
-}
 .audio-Theme {
-    position: fixed;   /* Faz o player ficar "preso" na tela, mesmo ao rolar */
-    top: 20px;         /* Distância do topo */
-    right: 20px;       /* Distância da direita */
-    z-index: 999;      /* Garante que ele fique na frente de tudo */
-    background: rgba(0, 0, 0, 0.5); /* Fundo sutil para o player aparecer bem */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
     padding: 5px;
     border-radius: 30px;
-    border: 1px solid #d3190d; /* Borda vermelha Gears */
+    border: 1px solid #d3190d;
 }
 
-/* Deixa o player mais discreto */
 .audio-Theme audio {
     height: 35px;
-    width: 220px; /* Largura menor para não ocupar muito espaço */
+    width: 220px;
 }
