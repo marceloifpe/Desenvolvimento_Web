@@ -23,8 +23,20 @@ body {
 .main-container {
     width: 800px;
     background-color: white;
-    border: 8px double #b30086;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+    /* A MÁGICA DO 3D: 'ridge' cria o relevo com luz e sombra invertidas */
+    /* Aumentei a espessura para 12px para o efeito ficar bem visível */
+    border: 12px groove #cc0088;
+
+    /* Mantivemos apenas a sombra esfumaçada externa para dar profundidade na página */
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+    /* O padding cria a linha branca separando a borda do conteúdo interno */
+    padding: 5px;
+
+    /* Margem para centralizar na tela e não cortar no topo */
+    margin: 15px auto;
+    box-sizing: border-box;
 }
 
 #home {
@@ -88,10 +100,17 @@ body {
     color: red;
 }
 
-.detail-table {
-    width: 100%;
-    border-collapse: collapse;
-    border-top: 5px solid #b30086;
+.detail-table th.header-cell {
+    background-color: #ff99cc;
+    color: black;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 10px;
+
+    /* Borda apenas embaixo do título para separar da biografia */
+    border-bottom: 2px solid #b30086;
+
+    font-family: Arial, sans-serif;
 }
 
 .detail-table th.header-cell {
