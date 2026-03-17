@@ -23,18 +23,9 @@ body {
 .main-container {
     width: 800px;
     background-color: white;
-
-    /* A MÁGICA DO 3D: 'ridge' cria o relevo com luz e sombra invertidas */
-    /* Aumentei a espessura para 12px para o efeito ficar bem visível */
     border: 12px groove #cc0088;
-
-    /* Mantivemos apenas a sombra esfumaçada externa para dar profundidade na página */
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
-
-    /* O padding cria a linha branca separando a borda do conteúdo interno */
     padding: 5px;
-
-    /* Margem para centralizar na tela e não cortar no topo */
     margin: 15px auto;
     box-sizing: border-box;
 }
@@ -106,10 +97,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     padding: 10px;
-
-    /* Borda apenas embaixo do título para separar da biografia */
     border-bottom: 2px solid #b30086;
-
     font-family: Arial, sans-serif;
 }
 
@@ -158,10 +146,12 @@ body {
 }
 
 .madre-unified-table {
-    width: 60%;
+    width: 65%;
     margin: 20px auto;
-    border-collapse: collapse;
-    border: 2px solid yellow;
+    border-collapse: separate;
+    background-color: white;
+    border: 12px groove #cc0088;
+    padding: 3px;
     font-family: Arial, sans-serif;
     font-size: 16px;
 }
@@ -172,24 +162,26 @@ body {
     font-weight: bold;
     text-align: center;
     padding: 5px;
-    border: 1px solid #a0a0a0;
+    border: 2px solid #ffb3e6;
 }
 
 .madre-unified-table td.madre-unified-image-cell {
-    padding: 0;
-    border: 1px solid #a0a0a0;
+    padding: 20px;
+    border: 2px solid #ffb3e6;
     text-align: center;
+    background-color: white;
 }
 
 .madre-unified-table td.madre-unified-image-cell img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
+    margin: 0 auto;
     border: none;
 }
 
 .madre-unified-table td {
-    border: 1px solid #a0a0a0;
+    border: 2px solid #ffb3e6;
     padding: 8px;
     background-color: white;
 }
@@ -199,6 +191,7 @@ body {
     color: white;
     font-weight: bold;
     width: 30%;
+    border: 2px solid #ffb3e6;
 }
 
 .bio-cell-white {
