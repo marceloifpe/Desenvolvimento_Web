@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta 03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #resultados {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .ascii-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 60px;
+        }
+
+        .texto {
+            text-align: justify;
+        }
+
+        pre {
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="texto"><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Um Anel!</strong> que a todos rege, Um Anel para achá-los, Um
+        Anel que a
+        todos trás, para na
+        escuridão
+        atá-los... Assim foi criado um anel que tinha o poder de dominar as pessoas e forçar a sua
+        vontade. Contudo, um ser parecia ser imune ao efeito do anel. O pequeno Frodo Bolseiro. Esse foi
+        encarregado de levar ao anel para ser destruído no fogo da montanha da perdição. No caminho
+        passaram pelo portal de Mória. Esse estava fechado e o mago Gandalf precisa achar a palavra
+        correta antes que fosse atacado pelo que estava na água. A tabela abaixo informa quais palavras
+        poderiam ser pronunciadas. Faça um programa que gere aleatoriamente um número referente a
+        tentativa de pronunciar a palavra correta. Informe quantas foram as tentativas até que a palavra
+        correta tenha sido pronunciada. Informe qual foi a palavra que mais se repetiu.
+        [friend] [amico] [prijatelj] [Freund] [ven] [ystävä] [пријатељ] [Mellon] [amigo] [barát]
+        1-2-3-4-5-6-7-8-9-10.</p>
+    <div id="resultados"></div>
+
+    <div class="ascii-container">
+        <pre>
+   ,-==-,
+   \/\/\/
+    \\//
+    .-''-.
+  .'.-""-.'.---.
+ / /    .'\ \--.'.
+ | |   / /| |   \ \
+ \ \  | | / /    | |
+  '.'-:\ \.'    / /
+    '---; '-..-'.'
+  Precioso    `'----'
+        </pre>
+
+        <pre>
+                       ,---.
+                       /    |
+                      /     |
+ Gandalf             /      |
+                    /       |
+               ___,'        |
+             <  -'          :
+              `-.__..--'``-,_\_
+                 |o/ <o>` :,.)_`>
+                 :/ `     ||/)
+                 (_.).__,-` |\
+                 /( `.``   `| :
+                 \'`-.)  `  ; ;
+                 | `       /-<
+                 |     `  /   `.
+ ,-_-..____     /|  `    :__..-'\
+/,'-.__\\  ``-./ :`      ;       \
+`\ `\  `\\  \ :  (   `  /  ,    `. \
+  \` \   \\   |  | `   :  :     .\ \
+   \ `\_  ))  :  ;     |  |      ): :
+ (`-.-'\ ||  |\ \   ` ;  ;       | |
+  \-_   `;;._   ( `  /  /_       | |
+   `-.-.// ,'`-._\__/_,'         ; |
+       \:: :     /     `     ,   /  |
+        || |    (        ,' /   /   |
+        ||               ,'   / Mellon|
+        </pre>
+    </div>
+
+    <script>
+        let palavras = ["friend", "amico", "prijatelj", "Freund", "ven", "ystävä", "пријатељ", "Mellon", "amigo", "barát"];
+        let alvo = "Mellon";
+
+        let contagem = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let tentativas = 0;
+        let acertou = false;
+
+        while (!acertou) {
+            let indice = Math.floor(Math.random() * 10);
+            contagem[indice]++;
+            tentativas++;
+
+            if (palavras[indice] === alvo) {
+                acertou = true;
+            }
+        }
+
+        let maisRepetida = "";
+        let maxRepeticoes = 0;
+
+        for (let i = 0; i < 10; i++) {
+            if (palavras[i] !== alvo && contagem[i] > maxRepeticoes) {
+                maxRepeticoes = contagem[i];
+                maisRepetida = palavras[i];
+            }
+        }
+
+        let saidaTexto = "<strong>Palavra correta:</strong> " + alvo + "<br>";
+        saidaTexto += "<strong>Tentativas totais até acertar:</strong> " + tentativas + "<br>";
+
+        if (maxRepeticoes > 0) {
+            saidaTexto += "<strong>A palavra errada que mais se repetiu foi:</strong> '" + maisRepetida + "' (" + maxRepeticoes + " vezes).";
+        } else {
+            saidaTexto += "Nenhuma palavra errada se repetiu.";
+        }
+
+        document.getElementById("resultados").innerHTML = saidaTexto;
+    </script>
+</body>
+
+</html>
