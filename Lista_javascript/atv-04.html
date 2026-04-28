@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta 04</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        #resultados {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        strong {
+            color: #f1c40f;
+        }
+
+        .ascii-container {
+            display: flex;
+            align-items: flex-end;
+            gap: 50px;
+        }
+
+        pre {
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.2;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="resultados"></div>
+
+    <div class="ascii-container">
+        <pre>
+          .  .
+          |\_|\
+          | a_a\
+          | | "]
+     ____| '-\___
+    /.----.___.-'\
+   //        _    \
+  //   .-. (~v~) /|
+ |'|  /\:  .--  / \
+// |-/  \_/____/\/~|
+|/  \ |  []_|_|_] \ |
+| \  | \ |___   _\ ]_}
+| |  '-' /   '.'  |
+| |     /    /|:  | 
+| |     |   / |:  /\
+| |     /  /  |  /  \
+| |    |  /  /  |    \
+\ |    |/\/  |/|/\    \
+ \|\ |\|  |  | / /\/\__\
+  \ \| | /   | |__
+Wayne    / |   |____)
+       |_/
+        </pre>
+
+        <pre>
+   o_______________}o{
+   |              |   \
+   |    911       |____\_____
+   | _____        |    |_o__ |
+   [/ ___ \       |   / ___ \|
+  []_/.-.\_\______|__/_/.-.\_[]
+     |(O)|             |(O)|
+      '-'   Police         '-'
+---   ---   ---   ---   ---   ---
+        </pre>
+    </div>
+
+    <script>
+        let distancia = 295;
+        let precoGas = 0.75;
+
+        let morcego = {
+            nome: "Morcego Preto",
+            aluguel: 300,
+            consumo: 16
+        };
+
+        let vampiro = {
+            nome: "Vampiro Voador",
+            aluguel: 500,
+            consumo: 11
+        };
+
+        let custoGasolinaMorcego = (distancia / morcego.consumo) * precoGas;
+        let totalMorcego = morcego.aluguel + custoGasolinaMorcego;
+
+        let custoGasolinaVampiro = (distancia / vampiro.consumo) * precoGas;
+        let totalVampiro = vampiro.aluguel + custoGasolinaVampiro;
+
+        let htmlSaida = "<strong>" + morcego.nome + "</strong><br>";
+        htmlSaida += "Custo do Aluguel: $" + morcego.aluguel + "<br>";
+        htmlSaida += "Custo Total da Viagem: $" + totalMorcego.toFixed(2) + "<br><br>";
+
+        htmlSaida += "<strong>" + vampiro.nome + "</strong><br>";
+        htmlSaida += "Custo do Aluguel: $" + vampiro.aluguel + "<br>";
+        htmlSaida += "Custo Total da Viagem: $" + totalVampiro.toFixed(2) + "<br>";
+
+        document.getElementById("resultados").innerHTML = htmlSaida;
+    </script>
+</body>
+
+</html>
