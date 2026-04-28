@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pergunta 01</title>
+    <style>
+        .imagens {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            background-color: black;
+            justify-content: center;
+        }
+
+        .imagens img {
+            width: 200px;
+            height: auto;
+            border: 1px solid white;
+        }
+
+        #logs {
+            font-family: sans-serif;
+            line-height: 1.6;
+            background-color: beige;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="imagens">
+        <img src="imagens/DARKSEID.jpeg" alt="Darkseid">
+        <img src="imagens/fenix.jpg" alt="Fênix">
+    </div>
+
+    <div id="logs"></div>
+
+    <script>
+        let jogador1 = "Darkseid";
+        let jogador2 = "Fênix";
+        let pontosJ1 = 0;
+        let pontosJ2 = 0;
+
+        let sorteio = Math.floor(Math.random() * 2);
+        let defensor = (sorteio === 0) ? jogador1 : jogador2;
+
+        let logsHTML = `<p>O defensor sorteado é: <strong>${defensor}</strong></p>`;
+
+        for (let i = 0; i < 3; i++) {
+            let dadosJ1 = [Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1];
+            let dadosJ2 = [Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1];
+
+            let maiorJ1 = Math.max(...dadosJ1);
+            let maiorJ2 = Math.max(...dadosJ2);
+
+            if (maiorJ1 > maiorJ2) {
+                pontosJ1++;
+            } else if (maiorJ2 > maiorJ1) {
+                pontosJ2++;
+            } else {
+                if (defensor === jogador1) pontosJ1++;
+                else pontosJ2++;
+            }
+        }
+
+        let vencedor = (pontosJ1 > pontosJ2) ? jogador1 : jogador2;
+
+        logsHTML += `
+            <p>Pontos de ${jogador1}: ${pontosJ1}</p>
+            <p>Pontos de ${jogador2}: ${pontosJ2}</p>
+            <p><strong>O vencedor é: ${vencedor}!</strong></p>
+        `;
+
+        document.getElementById("logs").innerHTML = logsHTML;
+    </script>
+</body>
+
+</html>
