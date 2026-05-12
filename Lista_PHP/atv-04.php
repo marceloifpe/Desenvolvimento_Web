@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Pergunta 4 - Somatório</title>
+    <title>Pergunta 04 - Somatório</title>
 </head>
 <body>
     <h1>Pergunta 04 - Somatório S</h1>
