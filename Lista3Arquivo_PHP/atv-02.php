@@ -6,10 +6,14 @@ if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
     $conteudoFinal = "";
 
-    for ($i = 0; isset($linhas[$i]); $i++) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    for ($i = 0; $i < $qtd_linhas; $i++) {
         $linhaAtual = $linhas[$i];
         $linhaInvertida = "";
-
         $tamanho = strlen($linhaAtual);
 
         for ($j = $tamanho - 1; $j >= 0; $j--) {

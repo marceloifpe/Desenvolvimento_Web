@@ -4,7 +4,12 @@ $nomeDoArquivo = 'arquivo/copa.txt';
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
 
-    if (isset($linhas[10])) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    if ($qtd_linhas > 10) {
         $linha11 = $linhas[10];
         $tamanho = strlen($linha11);
 

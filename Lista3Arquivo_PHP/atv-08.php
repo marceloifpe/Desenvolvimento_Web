@@ -7,7 +7,12 @@ if (file_exists($nomeDoArquivo)) {
     $conteudoFinal = "";
     $vogais = "aeiouAEIOUáéíóúÁÉÍÓÚãõÃÕâêôÂÊÔàÀ";
 
-    for ($i = 0; isset($linhas[$i]); $i++) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    for ($i = 0; $i < $qtd_linhas; $i++) {
         $linhaAtual = $linhas[$i];
         $linhaSemVogais = "";
 
