@@ -1,64 +1,71 @@
 <?php
 $nomeDoArquivo = 'arquivo/copa.txt';
-
 $novoArquivo = 'arquivo/copaf.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
     $conteudoFinal = "";
+    $min = "abcdefghijklmnopqrstuvwxyzáéíóúâêôãõç";
+    $mai = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÂÊÔÃÕÇ";
 
     $virarMaiuscula = true;
 
-    for ($i = 0; $i < count($linhas); $i++) {
+    for ($i = 0; isset($linhas[$i]); $i++) {
         $linhaAtual = $linhas[$i];
-        $tamanho = mb_strlen($linhaAtual, 'UTF-8');
-
         $linhaProcessada = "";
         $palavraAtual = "";
 
-        for ($j = 0; $j < $tamanho; $j++) {
-            $caractere = mb_substr($linhaAtual, $j, 1, 'UTF-8');
+        for ($j = 0; $j < strlen($linhaAtual); $j++) {
+            $caractere = substr($linhaAtual, $j, 1);
 
             if ($caractere !== " ") {
                 $palavraAtual .= $caractere;
             } else {
                 if ($palavraAtual !== "") {
-                    if ($virarMaiuscula) {
-                        $linhaProcessada .= mb_strtoupper($palavraAtual, 'UTF-8');
-                    } else {
-                        $linhaProcessada .= mb_strtolower($palavraAtual, 'UTF-8');
+                    for ($k = 0; $k < strlen($palavraAtual); $k++) {
+                        $c = substr($palavraAtual, $k, 1);
+                        $novoC = $c;
+                        for ($m = 0; $m < strlen($min); $m++) {
+                            if ($virarMaiuscula && $c === substr($min, $m, 1)) {
+                                $novoC = substr($mai, $m, 1);
+                                break;
+                            } else if (!$virarMaiuscula && $c === substr($mai, $m, 1)) {
+                                $novoC = substr($min, $m, 1);
+                                break;
+                            }
+                        }
+                        $linhaProcessada .= $novoC;
                     }
-
                     $virarMaiuscula = !$virarMaiuscula;
-
                     $palavraAtual = "";
                 }
-
                 $linhaProcessada .= " ";
             }
         }
 
         if ($palavraAtual !== "") {
-            if ($virarMaiuscula) {
-                $linhaProcessada .= mb_strtoupper($palavraAtual, 'UTF-8');
-            } else {
-                $linhaProcessada .= mb_strtolower($palavraAtual, 'UTF-8');
+            for ($k = 0; $k < strlen($palavraAtual); $k++) {
+                $c = substr($palavraAtual, $k, 1);
+                $novoC = $c;
+                for ($m = 0; $m < strlen($min); $m++) {
+                    if ($virarMaiuscula && $c === substr($min, $m, 1)) {
+                        $novoC = substr($mai, $m, 1);
+                        break;
+                    } else if (!$virarMaiuscula && $c === substr($mai, $m, 1)) {
+                        $novoC = substr($min, $m, 1);
+                        break;
+                    }
+                }
+                $linhaProcessada .= $novoC;
             }
             $virarMaiuscula = !$virarMaiuscula;
         }
 
-        $conteudoFinal .= $linhaProcessada . PHP_EOL;
+        $conteudoFinal .= $linhaProcessada . "\n";
     }
 
     file_put_contents($novoArquivo, $conteudoFinal);
-
     echo "<p style='color: green;'><strong>Letra F concluída com sucesso!</strong> O resultado foi salvo no arquivo <strong>copaf.txt</strong>.</p>";
-
-    echo "<strong>Como ficou o seu arquivo 'copaf.txt':</strong><br><br>";
-    echo "<pre style='background: #252526; color: #d4d4d4; padding: 10px; font-family: monospace; width: fit-content;'>";
-    echo htmlspecialchars($conteudoFinal);
-    echo "</pre>";
-
 } else {
     echo "<p style='color: red;'>Erro: O arquivo '$nomeDoArquivo' não foi encontrado.</p>";
 }

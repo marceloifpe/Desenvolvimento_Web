@@ -4,51 +4,40 @@ $nomeDoArquivoCriptografado = 'arquivo/copa_criptografado.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
-    $totalDeLinhas = 0;
+    echo "<h2>Questão W: Criptografar (Cifra de César)</h2>";
+    
+    $conteudoCriptografado = "";
+    $deslocamento = 3;
+    $alfabetoMin = "abcdefghijklmnopqrstuvwxyz";
+    $alfabetoMai = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
     for ($i = 0; isset($linhas[$i]); $i++) {
-        $totalDeLinhas++;
-    }
+        $frase = $linhas[$i];
+        $fraseCriptografada = '';
 
-    if ($totalDeLinhas > 0) {
-        echo "<h2>Questão W: Criptografar o arquivo lido (Cifra de César com deslocamento 3)</h2>";
-        $conteudoCriptografado = [];
-        $deslocamento = 3;
+        for ($j = 0; $j < strlen($frase); $j++) {
+            $char = substr($frase, $j, 1);
+            $charCriptografado = $char;
 
-        for ($i = 0; $i < $totalDeLinhas; $i++) {
-            $frase = $linhas[$i];
-            $len_frase = 0;
-            for ($j = 0; isset($frase[$j]); $j++) {
-                $len_frase++;
-            }
-            $fraseCriptografada = '';
-            for ($j = 0; $j < $len_frase; $j++) {
-                $char = $frase[$j];
-                $ascii = ord($char);
-
-                if ($ascii >= 65 && $ascii <= 90) {
-                    $charCriptografado = chr(((($ascii - 65) + $deslocamento) % 26) + 65);
-                } elseif ($ascii >= 97 && $ascii <= 122) {
-                    $charCriptografado = chr(((($ascii - 97) + $deslocamento) % 26) + 97);
-                } else {
-                    $charCriptografado = $char;
+            for ($k = 0; $k < strlen($alfabetoMin); $k++) {
+                if ($char === substr($alfabetoMin, $k, 1)) {
+                    $novaPos = ($k + $deslocamento) % 26;
+                    $charCriptografado = substr($alfabetoMin, $novaPos, 1);
+                    break;
+                } else if ($char === substr($alfabetoMai, $k, 1)) {
+                    $novaPos = ($k + $deslocamento) % 26;
+                    $charCriptografado = substr($alfabetoMai, $novaPos, 1);
+                    break;
                 }
-                $fraseCriptografada .= $charCriptografado;
             }
-            $conteudoCriptografado[] = $fraseCriptografada;
+            $fraseCriptografada .= $charCriptografado;
         }
-
-        file_put_contents($nomeDoArquivoCriptografado, implode("\n", $conteudoCriptografado));
-        echo "<p>Arquivo criptografado salvo em: <strong>" . $nomeDoArquivoCriptografado . "</strong></p>";
-        echo "<h3>Conteúdo Criptografado:</h3><pre>";
-        foreach ($conteudoCriptografado as $linha) {
-            echo $linha . "\n";
-        }
-        echo "</pre>";
-
-    } else {
-        echo "<p style=\'color: orange;\'>Atenção: O arquivo foi lido, mas está vazio.</p>";
+        $conteudoCriptografado .= $fraseCriptografada . "\n";
     }
+
+    file_put_contents($nomeDoArquivoCriptografado, $conteudoCriptografado);
+    echo "<p>Arquivo criptografado salvo!</p>";
 } else {
-    echo "<p style=\'color: red;\'>Erro: O arquivo \'$nomeDoArquivo\' não foi encontrado. Verifique o caminho.</p>";
+    echo "<p style='color: red;'>Erro: O arquivo não foi encontrado.</p>";
 }
 ?>
