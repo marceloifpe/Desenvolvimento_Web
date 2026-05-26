@@ -10,7 +10,12 @@ if (file_exists($nomeDoArquivo)) {
     $conteudoFinal = "";
     $tamanhoBusca = strlen($palavraBusca);
 
-    for ($l = 0; isset($linhas[$l]); $l++) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    for ($l = 0; $l < $qtd_linhas; $l++) {
         $linhaAtual = $linhas[$l];
         $tamanhoLinha = strlen($linhaAtual);
         $linhaProcessada = "";

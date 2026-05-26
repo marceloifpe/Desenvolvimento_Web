@@ -11,7 +11,12 @@ if (file_exists($nomeDoArquivoCriptografado)) {
     $alfabetoMin = "abcdefghijklmnopqrstuvwxyz";
     $alfabetoMai = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    for ($i = 0; isset($linhas[$i]); $i++) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    for ($i = 0; $i < $qtd_linhas; $i++) {
         $frase = $linhas[$i];
         $fraseDescriptografada = '';
 
@@ -21,7 +26,6 @@ if (file_exists($nomeDoArquivoCriptografado)) {
 
             for ($k = 0; $k < strlen($alfabetoMin); $k++) {
                 if ($char === substr($alfabetoMin, $k, 1)) {
-                    // +26 evita números negativos no PHP ao usar módulo
                     $novaPos = ($k - $deslocamento + 26) % 26;
                     $charDescriptografado = substr($alfabetoMin, $novaPos, 1);
                     break;

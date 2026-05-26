@@ -8,7 +8,12 @@ if (file_exists($nomeDoArquivo)) {
     $min = "abcdefghijklmnopqrstuvwxyzáéíóúâêôãõç";
     $mai = "ABCDEFGHIJKLMNOPQRSTUVWXYZÁÉÍÓÚÂÊÔÃÕÇ";
 
-    for ($i = 0; isset($linhas[$i]); $i++) {
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
+
+    for ($i = 0; $i < $qtd_linhas; $i++) {
         $linhaAtual = $linhas[$i];
         $linhaMaiuscula = "";
 
