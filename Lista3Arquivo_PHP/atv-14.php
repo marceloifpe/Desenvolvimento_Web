@@ -3,17 +3,21 @@ $nomeDoArquivo = 'arquivo/copa.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
+    
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
+    }
 
-    if (isset($linhas[21])) {
-
+    if ($qtd_linhas > 21) {
         $linha22 = $linhas[21];
-        $tamanho = mb_strlen($linha22, 'UTF-8');
+        $tamanho = strlen($linha22);
 
         $palavras = [];
         $palavraAtual = "";
 
         for ($i = 0; $i < $tamanho; $i++) {
-            $caractere = mb_substr($linha22, $i, 1, 'UTF-8');
+            $caractere = substr($linha22, $i, 1);
 
             if ($caractere !== " ") {
                 $palavraAtual .= $caractere;
@@ -29,27 +33,27 @@ if (file_exists($nomeDoArquivo)) {
         }
 
         echo "<p style='color: green;'><strong>Letra N - Linha 22 com cada palavra na vertical:</strong></p>";
+        echo "<div style='font-family: monospace; display: flex; gap: 40px; width: fit-content; line-height: 1.5;'>";
 
-        echo "<div style='background: #252526; color: #d4d4d4; padding: 20px; font-family: monospace; display: flex; gap: 40px; width: fit-content; line-height: 1.5;'>";
-
-        foreach ($palavras as $palavra) {
-            echo "<div style='text-align: center; font-weight: bold;'>";
-
-            $tamanhoPalavra = mb_strlen($palavra, 'UTF-8');
-
-            for ($j = 0; $j < $tamanhoPalavra; $j++) {
-                echo mb_substr($palavra, $j, 1, 'UTF-8') . "<br>";
-            }
-
-            echo "</div>";
+        $qtd_palavras = 0;
+        foreach ($palavras as $p) { 
+            $qtd_palavras++; 
         }
 
+        for ($p = 0; $p < $qtd_palavras; $p++) {
+            $palavra = $palavras[$p];
+            echo "<div style='text-align: center; font-weight: bold;'>";
+
+            $tamanhoPalavra = strlen($palavra);
+            for ($j = 0; $j < $tamanhoPalavra; $j++) {
+                echo substr($palavra, $j, 1) . "<br>";
+            }
+            echo "</div>";
+        }
         echo "</div>";
-
     } else {
-        echo "<p style='color: orange;'>Atenção: O arquivo tem menos de 22 linhas, não é possível exibir o resultado.</p>";
+        echo "<p style='color: orange;'>Atenção: O arquivo tem menos de 22 linhas.</p>";
     }
-
 } else {
     echo "<p style='color: red;'>Erro: O arquivo '$nomeDoArquivo' não foi encontrado.</p>";
 }

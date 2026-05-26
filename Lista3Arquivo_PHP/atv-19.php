@@ -3,32 +3,28 @@ $nomeDoArquivo = 'arquivo/copa.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
-    $totalDeLinhas = 0;
-    for ($i = 0; isset($linhas[$i]); $i++) {
-        $totalDeLinhas++;
+    
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
     }
 
-    if ($totalDeLinhas > 0) {
-        echo "<h2>Questão S: Última posição de uma vogal em cada frase</h2>";
+    if ($qtd_linhas > 0) {
+        echo "<h2>Questão S: Última posição de uma vogal</h2>";
         $vogais = 'aeiouAEIOU';
-        $len_vogais = 0;
-        for ($i = 0; isset($vogais[$i]); $i++) {
-            $len_vogais++;
-        }
+        $len_vogais = strlen($vogais);
 
-        for ($i = 0; $i < $totalDeLinhas; $i++) {
+        for ($i = 0; $i < $qtd_linhas; $i++) {
             $frase = $linhas[$i];
-            $len_frase = 0;
-            for ($j = 0; isset($frase[$j]); $j++) {
-                $len_frase++;
-            }
-
+            $len_frase = strlen($frase);
             $ultimaPosicaoVogal = -1;
+
             for ($j = $len_frase - 1; $j >= 0; $j--) {
-                $char = $frase[$j];
+                $char = substr($frase, $j, 1);
                 $isVogal = false;
+                
                 for ($k = 0; $k < $len_vogais; $k++) {
-                    if ($char == $vogais[$k]) {
+                    if ($char == substr($vogais, $k, 1)) {
                         $isVogal = true;
                         break;
                     }
@@ -38,18 +34,8 @@ if (file_exists($nomeDoArquivo)) {
                     break;
                 }
             }
-            echo "<p>Frase: \"" . $frase . "\" -> Última posição da vogal: ";
-            if ($ultimaPosicaoVogal != -1) {
-                echo $ultimaPosicaoVogal;
-            } else {
-                echo "Nenhuma vogal encontrada.";
-            }
-            echo "</p>";
+            echo "<p>Frase: \"" . $frase . "\" -> Última vogal no índice: " . ($ultimaPosicaoVogal != -1 ? $ultimaPosicaoVogal : "Nenhuma") . "</p>";
         }
-    } else {
-        echo "<p style='color: orange;'>Atenção: O arquivo foi lido, mas está vazio.</p>";
     }
-} else {
-    echo "<p style='color: red;'>Erro: O arquivo '$nomeDoArquivo' não foi encontrado. Verifique o caminho.</p>";
 }
 ?>

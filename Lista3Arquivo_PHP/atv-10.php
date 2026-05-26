@@ -3,19 +3,17 @@ $nomeDoArquivo = 'arquivo/copa.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
-
     $totalPalavras = 0;
 
-    for ($i = 0; $i < count($linhas); $i++) {
+    for ($i = 0; isset($linhas[$i]); $i++) {
         $linhaAtual = $linhas[$i];
-        $tamanho = mb_strlen($linhaAtual, 'UTF-8');
-
+        $tamanho = strlen($linhaAtual);
         $dentroDaPalavra = false;
 
         for ($j = 0; $j < $tamanho; $j++) {
-            $caractere = mb_substr($linhaAtual, $j, 1, 'UTF-8');
+            $caractere = substr($linhaAtual, $j, 1);
 
-            if ($caractere !== " ") {
+            if ($caractere !== " " && $caractere !== "\t" && $caractere !== "\r") {
                 if (!$dentroDaPalavra) {
                     $totalPalavras++;
                     $dentroDaPalavra = true;
@@ -27,12 +25,8 @@ if (file_exists($nomeDoArquivo)) {
     }
 
     echo "<p style='color: green;'><strong>Letra J concluída com sucesso!</strong></p>";
-
-    echo "<div style='background: #252526; color: #d4d4d4; padding: 20px; font-family: monospace; width: fit-content; font-size: 1.2rem;'>";
     echo "Total de palavras no arquivo: <strong>$totalPalavras</strong>";
-    echo "</div>";
-
 } else {
-    echo "<p style='color: red;'>Erro: O arquivo '$nomeDoArquivo' não foi encontrado.</p>";
+    echo "<p style='color: red;'>Erro: O arquivo não foi encontrado.</p>";
 }
 ?>

@@ -3,70 +3,47 @@ $nomeDoArquivo = 'arquivo/copa.txt';
 
 if (file_exists($nomeDoArquivo)) {
     $linhas = file($nomeDoArquivo, FILE_IGNORE_NEW_LINES);
-    $totalDeLinhas = 0;
-    for ($i = 0; isset($linhas[$i]); $i++) {
-        $totalDeLinhas++;
+    
+    $qtd_linhas = 0;
+    foreach ($linhas as $l) { 
+        $qtd_linhas++; 
     }
 
-    if ($totalDeLinhas > 0) {
-        echo "<h2>Questão Z: Primeira palavra na diagonal e última na diagonal invertida</h2>";
+    if ($qtd_linhas > 0) {
+        echo "<h2>Questão Z: Primeira na diagonal, última invertida</h2>";
         $frase = $linhas[0];
-        echo "<p>Frase escolhida: \"" . $frase . "\"</p>";
-
-        $len_frase = 0;
-        for ($i = 0; isset($frase[$i]); $i++) {
-            $len_frase++;
-        }
+        $len_frase = strlen($frase);
 
         $primeiraPalavra = '';
-        $ultimaPalavra = '';
-
         for ($i = 0; $i < $len_frase; $i++) {
-            if ($frase[$i] == ' ') {
-                break;
-            }
-            $primeiraPalavra .= $frase[$i];
+            $char = substr($frase, $i, 1);
+            if ($char == ' ') break;
+            $primeiraPalavra .= $char;
         }
 
         $tempUltimaPalavra = '';
         for ($i = $len_frase - 1; $i >= 0; $i--) {
-            if ($frase[$i] == ' ') {
-                break;
-            }
-            $tempUltimaPalavra = $frase[$i] . $tempUltimaPalavra;
+            $char = substr($frase, $i, 1);
+            if ($char == ' ') break;
+            $tempUltimaPalavra = $char . $tempUltimaPalavra;
         }
         $ultimaPalavra = $tempUltimaPalavra;
 
-        echo "<p>Primeira palavra na diagonal:</p><pre>";
-        $len_primeira = 0;
-        for ($i = 0; isset($primeiraPalavra[$i]); $i++) {
-            $len_primeira++;
-        }
+        echo "<p>Primeira diagonal:</p><pre>";
+        $len_primeira = strlen($primeiraPalavra);
         for ($i = 0; $i < $len_primeira; $i++) {
-            for ($j = 0; $j < $i; $j++) {
-                echo " ";
-            }
-            echo $primeiraPalavra[$i] . "\n";
+            for ($j = 0; $j < $i; $j++) echo " ";
+            echo substr($primeiraPalavra, $i, 1) . "\n";
         }
         echo "</pre>";
 
-        echo "<p>Última palavra na diagonal invertida:</p><pre>";
-        $len_ultima = 0;
-        for ($i = 0; isset($ultimaPalavra[$i]); $i++) {
-            $len_ultima++;
-        }
+        echo "<p>Última diagonal invertida:</p><pre>";
+        $len_ultima = strlen($ultimaPalavra);
         for ($i = 0; $i < $len_ultima; $i++) {
-            for ($j = 0; $j < ($len_ultima - 1 - $i); $j++) {
-                echo " ";
-            }
-            echo $ultimaPalavra[$i] . "\n";
+            for ($j = 0; $j < ($len_ultima - 1 - $i); $j++) echo " ";
+            echo substr($ultimaPalavra, $i, 1) . "\n";
         }
         echo "</pre>";
-
-    } else {
-        echo "<p style='color: orange;'>Atenção: O arquivo foi lido, mas está vazio.</p>";
     }
-} else {
-    echo "<p style='color: red;'>Erro: O arquivo '$nomeDoArquivo' não foi encontrado. Verifique o caminho.</p>";
 }
 ?>
